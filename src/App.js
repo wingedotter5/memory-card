@@ -27,7 +27,7 @@ function App() {
       if (highScore < clickedItems.length) setHighScore(clickedItems.length);
       setGameOver(true);
     }
-  }, [clickedItems]);
+  }, [clickedItems, highScore, items]);
 
   const resetGame = () => {
     setGameOver(false);
