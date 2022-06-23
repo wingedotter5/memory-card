@@ -1,0 +1,18 @@
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 3, 3, 0.5);
+  display: grid;
+  place-items: center;
+}
+
+.content {
+  position: relative;
+  top: -10%;
+  background-color: #fff;
+  text-align: center;
+  padding: 30px 60px;
+}
