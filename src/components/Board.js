@@ -5,7 +5,7 @@ export default function Board({ onItemClick, items }) {
   return (
     <div id="board" className={classes.board}>
       {items.map((item) => (
-        <Card key={item} color={item} onItemClick={onItemClick} />
+        <Card key={item.id} item={item} onItemClick={onItemClick} />
       ))}
     </div>
   );

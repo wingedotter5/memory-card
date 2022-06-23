@@ -1,11 +1,9 @@
 import classes from "../styles/Card.module.css";
 
-export default function Card({ color, onItemClick }) {
+export default function Card({ item, onItemClick }) {
   return (
-    <div
-      style={{ backgroundColor: `#${color}` }}
-      className={classes.card}
-      onClick={() => onItemClick(color)}
-    ></div>
+    <div className={classes.card} onClick={() => onItemClick(item)}>
+      <img src={item.image} alt={item.name} style={{ maxWidth: "100%" }} />
+    </div>
   );
 }
