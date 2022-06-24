@@ -15,7 +15,9 @@ export default function Modal({ defaultOpen, onClose, children, title }) {
         <div className={classes.container}>
           <div className={classes.content}>
             {children}
-            <button onClick={closeModal}>{title}</button>
+            <button className={classes.button} onClick={closeModal}>
+              {title}
+            </button>
           </div>
         </div>
       )}

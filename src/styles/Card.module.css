@@ -1,7 +1,9 @@
 .card {
-  height: 200px;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
 }
 
 .card:hover {
