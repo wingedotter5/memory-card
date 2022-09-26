@@ -9,22 +9,19 @@ function App() {
   const [clickedItems, setClickedItems] = useState([]);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-  const [page, setPage] = useState();
 
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character")
-      .then((res) => res.json())
-      .then((data) => setPage(data.info.pages));
+    (async function () {
+      let res = await fetch("https://rickandmortyapi.com/api/character");
+      let data = await res.json();
+      const randomPage = Math.floor(Math.random() * data.info.pages);
+      res = await fetch(
+        `https://rickandmortyapi.com/api/character/?page=${randomPage}`
+      );
+      data = await res.json();
+      setItems(data.results.slice(0, 12));
+    })();
   }, []);
-
-  useEffect(() => {
-    const randomPage = Math.floor(Math.random() * page);
-    fetch(`https://rickandmortyapi.com/api/character/?page=${randomPage}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(data.results.slice(0, 12));
-      });
-  }, [page]);
 
   const onItemClick = (item) => {
     if (clickedItems.includes(item.id)) {
